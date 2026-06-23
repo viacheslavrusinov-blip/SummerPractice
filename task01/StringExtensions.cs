@@ -28,7 +28,7 @@ namespace task01
             char[] reversedArray = stringChars.ToArray();
             Array.Reverse(reversedArray);
             string reversedString = new string(reversedArray);
-            return cleanedString == reversedString;
+            return stringChars == reversedString;
         }
     }
 }
