@@ -64,16 +64,24 @@ public static class ReflectionHelper
         {
             foreach (var prop in properties)
             {
-                Console.Write($"{prop.GetCustomAttribute<DisplayNameAttribute>()} - {prop.Name}");
+                var attribute = prop.GetCustomAttribute<DisplayNameAttribute>();
+                if (attribute != null)
+                {
+                    Console.Write($"{attribute.DisplayName} - {prop.Name}");
+                }
             }
         }
 
         var methods = _type.GetMethods();
         if (methods != null)
         {
-            foreach ( var method in methods)
+            foreach (var method in methods)
             {
-                Console.Write($"{method.GetCustomAttribute<DisplayNameAttribute>()} - {method.Name}");
+                var attribute = method.GetCustomAttribute<DisplayNameAttribute>();
+                if (attribute != null)
+                {
+                    Console.Write($"{attribute.DisplayName} - {method.Name}");
+                }
             }
         }
     }
